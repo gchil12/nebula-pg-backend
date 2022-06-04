@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "Question"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "questionFormat": {
+      "type": "enumeration",
+      "enum": [
+        "MULTIPLE_CHOICE",
+        "OPEN"
+      ]
+    },
+    "probableAnswers": {
+      "type": "json"
+    },
+    "correctAnswer": {
+      "type": "string"
+    },
+    "generated": {
+      "type": "boolean"
+    },
+    "section": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::section.section"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "remediation": {
+      "type": "json"
+    }
+  }
+}
