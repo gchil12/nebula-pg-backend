@@ -50,18 +50,19 @@
       "target": "api::video.video",
       "inversedBy": "lesson"
     },
-    "class": {
+    "grade": {
       "type": "integer"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
