@@ -4,18 +4,14 @@
   "info": {
     "singularName": "section",
     "pluralName": "sections",
-    "displayName": "Section"
+    "displayName": "Section",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "topic": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::topic.topic"
-    },
     "name": {
       "type": "string"
     },
@@ -24,6 +20,18 @@
       "relation": "manyToMany",
       "target": "api::teacher.teacher",
       "inversedBy": "sections"
+    },
+    "topic": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::topic.topic",
+      "inversedBy": "sections"
+    },
+    "lessons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lesson.lesson",
+      "mappedBy": "section"
     }
   }
 }

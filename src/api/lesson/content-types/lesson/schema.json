@@ -39,11 +39,6 @@
       "target": "api::quiz.quiz",
       "inversedBy": "lesson"
     },
-    "sections": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::section.section"
-    },
     "video": {
       "type": "relation",
       "relation": "oneToOne",
@@ -63,6 +58,12 @@
         "videos",
         "audios"
       ]
+    },
+    "section": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::section.section",
+      "inversedBy": "lessons"
     }
   }
 }

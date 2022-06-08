@@ -19,7 +19,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::section.section",
-      "inversedBy": "teachers"
+      "mappedBy": "teachers"
     }
   }
 }

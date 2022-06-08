@@ -4,7 +4,8 @@
   "info": {
     "singularName": "topic",
     "pluralName": "topics",
-    "displayName": "Topic"
+    "displayName": "Topic",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,8 +17,15 @@
     },
     "subject": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::subject.subject"
+      "relation": "manyToOne",
+      "target": "api::subject.subject",
+      "inversedBy": "topics"
+    },
+    "sections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::section.section",
+      "mappedBy": "topic"
     }
   }
 }

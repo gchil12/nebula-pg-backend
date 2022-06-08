@@ -4,7 +4,8 @@
   "info": {
     "singularName": "subject",
     "pluralName": "subjects",
-    "displayName": "Subject"
+    "displayName": "Subject",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,12 @@
   "attributes": {
     "name": {
       "type": "string"
+    },
+    "topics": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::topic.topic",
+      "mappedBy": "subject"
     }
   }
 }
