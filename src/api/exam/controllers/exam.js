@@ -1,5 +1,7 @@
 "use strict";
 
+const { default: axios } = require("axios");
+
 /**
  *  exam controller
  */
@@ -14,6 +16,13 @@ module.exports = createCoreController("api::exam.exam", ({ strapi }) => ({
       .findOne({
         where: { chatbotKey: chatbotKey },
       });
+    if (user.messengerId) {
+      axios.post("https://hooks.zapier.com/hooks/catch/10862516/bfcfr5r/", {
+        messengerId: user.messengerId,
+        message: "ამ ფეისბუქით რეგისტრაცია უკვე გავლილია",
+      });
+      throw new Error("მომხმარებელი ამ Facebook-ით უკვე");
+    }
     const entry = await strapi.db
       .query("plugin::users-permissions.user")
       .update({
