@@ -22,6 +22,10 @@ module.exports = createCoreController("api::exam.exam", ({ strapi }) => ({
         message: "ამ ფეისბუქით რეგისტრაცია უკვე გავლილია",
       });
       throw new Error("მომხმარებელი ამ Facebook-ით უკვე");
+    } else {
+      axios.post("https://hooks.zapier.com/hooks/catch/10862516/bfcfyps/", {
+        messengerId: messengerId,
+      });
     }
     const entry = await strapi.db
       .query("plugin::users-permissions.user")
